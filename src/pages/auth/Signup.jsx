@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import Icon from '../../components/AppIcon';
 import SEOHead from '../../components/SEOHead';
+import toast from 'react-hot-toast';
 
 const Signup = () => {
   const { user, signInWithDiscord, signInWithGitHub } = useAuth();
@@ -13,6 +14,7 @@ const Signup = () => {
   // Redirect if already authenticated
   useEffect(() => {
     if (user) {
+      toast.success(`Welcome to CodeWithBurhan, ${user.user_metadata?.full_name || 'User'}!`);
       navigate('/', { replace: true });
     }
   }, [user, navigate]);
@@ -22,13 +24,20 @@ const Signup = () => {
     setProvider(authProvider);
     
     try {
+      const providerName = authProvider === 'discord' ? 'Discord' : 'GitHub';
+      toast.loading(`Creating account with ${providerName}...`, { id: 'signup-loading' });
+      
       if (authProvider === 'discord') {
         await signInWithDiscord();
       } else if (authProvider === 'github') {
         await signInWithGitHub();
       }
+      
+      toast.dismiss('signup-loading');
     } catch (error) {
       console.error('Authentication error:', error);
+      toast.dismiss('signup-loading');
+      toast.error('Account creation failed. Please try again.');
     } finally {
       setLoading(false);
       setProvider(null);

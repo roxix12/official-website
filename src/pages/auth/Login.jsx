@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import Icon from '../../components/AppIcon';
 import SEOHead from '../../components/SEOHead';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const { user, signInWithDiscord, signInWithGitHub } = useAuth();
@@ -15,6 +16,7 @@ const Login = () => {
   useEffect(() => {
     if (user) {
       const redirectTo = location.state?.from?.pathname || '/';
+      toast.success(`Welcome back, ${user.user_metadata?.full_name || 'User'}!`);
       navigate(redirectTo, { replace: true });
     }
   }, [user, navigate, location]);
@@ -24,13 +26,20 @@ const Login = () => {
     setProvider(authProvider);
     
     try {
+      const providerName = authProvider === 'discord' ? 'Discord' : 'GitHub';
+      toast.loading(`Connecting to ${providerName}...`, { id: 'auth-loading' });
+      
       if (authProvider === 'discord') {
         await signInWithDiscord();
       } else if (authProvider === 'github') {
         await signInWithGitHub();
       }
+      
+      toast.dismiss('auth-loading');
     } catch (error) {
       console.error('Authentication error:', error);
+      toast.dismiss('auth-loading');
+      toast.error('Authentication failed. Please try again.');
     } finally {
       setLoading(false);
       setProvider(null);

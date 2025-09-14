@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import Icon from '../AppIcon';
 import Button from '../ui/Button';
@@ -104,7 +105,16 @@ const AuthButton = ({ className = "", size = "sm", variant = "outline" }) => {
                 </div>
               </div>
               
-              <div className="p-2">
+              <div className="p-2 space-y-1">
+                <Link
+                  to="/profile"
+                  onClick={closeDropdown}
+                  className="w-full flex items-center space-x-3 px-3 py-2 text-left text-gray-300 hover:text-white hover:bg-cyan-500/10 rounded-lg transition-all duration-300 group"
+                >
+                  <Icon name="User" size={16} className="text-cyan-400 group-hover:text-cyan-300" />
+                  <span>View Profile</span>
+                </Link>
+                
                 <button
                   onClick={handleSignOut}
                   disabled={authLoading}

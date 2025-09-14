@@ -23,6 +23,7 @@ import CookiesPolicy from './pages/legal/CookiesPolicy';
 import Unsubscribe from './pages/Unsubscribe';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
+import Profile from './pages/Profile';
 
 
 const Routes = () => {
@@ -56,6 +57,7 @@ const Routes = () => {
         <Route path="/unsubscribe" element={<Unsubscribe />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </RouterRoutes>
       <ChatAssistantFab />
