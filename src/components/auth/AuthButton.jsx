@@ -8,6 +8,9 @@ const AuthButton = ({ className = "", size = "sm", variant = "outline" }) => {
   const { user, loading, signInWithDiscord, signInWithGitHub, signOut } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [authLoading, setAuthLoading] = useState(false);
+  
+  // Debug log to ensure component is updating
+  console.log('AuthButton render - User:', user ? 'Logged In' : 'Not Logged In');
 
   const handleSignIn = async (provider) => {
     setAuthLoading(true);
