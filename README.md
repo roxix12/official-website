@@ -14,6 +14,9 @@ A modern, responsive portfolio website built with React and Supabase, featuring 
 - **Newsletter Integration** - Automated email notifications for subscribers
 - **Contact Forms** - Multiple contact methods with form validation
 - **Real-time Comments** - Comment system with moderation
+- **🔐 Authentication System** - Discord & GitHub OAuth integration
+- **👤 User Profiles** - Complete user management with avatars
+- **🔒 Secure Sessions** - JWT tokens with automatic refresh
 
 ### 🛠️ Admin Panel
 - **Content Management** - Full CMS for all website content
