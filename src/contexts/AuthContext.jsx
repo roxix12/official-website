@@ -52,10 +52,22 @@ export const AuthProvider = ({ children }) => {
   const signInWithProvider = async (provider) => {
     try {
       setLoading(true);
+      
+      // Use production URL if available, otherwise use current origin
+      const getRedirectUrl = () => {
+        // In production, always use your domain
+        if (window.location.hostname === 'codewithburhan.com' || 
+            window.location.hostname.includes('vercel.app')) {
+          return 'https://codewithburhan.com';
+        }
+        // In development, use localhost
+        return window.location.origin;
+      };
+      
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: provider,
         options: {
-          redirectTo: window.location.origin,
+          redirectTo: getRedirectUrl(),
           queryParams: {
             access_type: 'offline',
             prompt: 'consent',
