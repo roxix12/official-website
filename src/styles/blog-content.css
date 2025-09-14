@@ -1,0 +1,408 @@
+/* Blog Content Styles - Professional CDW Burhan Theme */
+
+.blog-content {
+  line-height: 1.8;
+  color: #FFFFFF; /* --color-foreground */
+  background: #0A0A0A; /* --color-background */
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.blog-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(255, 215, 0, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.blog-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 2rem 0 1.5rem 0;
+  background: linear-gradient(135deg, #00D4FF 0%, #8B5CF6 100%); /* neon-blue to neon-purple */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  padding-bottom: 1rem;
+  letter-spacing: -0.01em; /* heading-tight */
+}
+
+.blog-content h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00D4FF 0%, #8B5CF6 100%);
+  border-radius: 1px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2); /* neon-glow effect */
+}
+
+.blog-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 2rem 0 1.2rem 0;
+  color: #FFFFFF; /* --color-foreground */
+  position: relative;
+  padding-left: 1rem;
+}
+
+.blog-content h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 70%;
+  background: linear-gradient(135deg, #00D4FF 0%, #3B82F6 100%); /* neon-blue to accent */
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.blog-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.8rem 0 1rem 0;
+  color: #E5E5E5; /* --color-secondary-foreground */
+  position: relative;
+  padding-left: 0.8rem;
+}
+
+.blog-content h3::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00D4FF; /* neon-blue */
+  font-size: 0.8em;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+
+.blog-content p {
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
+  color: #B3B3B3; /* --color-muted-foreground */
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+.blog-content ul, .blog-content ol {
+  margin: 2rem 0;
+  padding-left: 2.5rem;
+  position: relative;
+}
+
+.blog-content ul {
+  list-style: none !important; /* Remove default bullets completely */
+}
+
+/* Ensure no double bullets in nested lists */
+.blog-content ul ul {
+  list-style: none !important;
+}
+
+.blog-content ul li {
+  list-style: none !important;
+}
+
+.blog-content li {
+  margin: 1rem 0;
+  color: #B3B3B3; /* --color-muted-foreground */
+  line-height: 1.8;
+  position: relative;
+  padding-left: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-content li:hover {
+  color: #FFFFFF; /* --color-foreground */
+  transform: translateX(2px);
+}
+
+.blog-content ul li {
+  list-style: none;
+  position: relative;
+}
+
+.blog-content ul li::before {
+  content: "▸";
+  color: #00D4FF; /* neon-blue */
+  font-weight: bold;
+  position: absolute;
+  left: -2rem;
+  top: 0;
+  font-size: 0.8em;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-content ul li:hover::before {
+  transform: scale(1.1);
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+}
+
+.blog-content ol li {
+  list-style: none;
+  counter-increment: item;
+}
+
+.blog-content ol {
+  counter-reset: item;
+}
+
+.blog-content ol li::before {
+  content: counter(item);
+  background: #3B82F6; /* --color-accent */
+  color: #000000; /* --color-accent-foreground */
+  font-weight: 600;
+  font-size: 0.8em;
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: -2.2rem;
+  top: 0.1rem;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-content ol li:hover::before {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.blog-content a {
+  color: #00D4FF; /* neon-blue */
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 212, 255, 0.5);
+  text-underline-offset: 3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  font-weight: 500;
+}
+
+.blog-content a:hover {
+  color: #8B5CF6; /* neon-purple */
+  text-decoration-color: #8B5CF6;
+  transform: translateY(-1px);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem; /* --radius */
+  margin: 2rem auto;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* --shadow-card */
+  border: 1px solid rgba(0, 212, 255, 0.3); /* neon-border */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-content img:hover {
+  transform: translateY(-4px); /* hover-lift */
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2); /* neon-glow */
+  border-color: #3B82F6; /* --color-accent */
+}
+
+.blog-content blockquote {
+  border-left: 3px solid #00D4FF; /* neon-blue */
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  background: rgba(26, 26, 26, 0.8); /* glass-morphism background */
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+  color: #E5E5E5; /* --color-secondary-foreground */
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0, 212, 255, 0.3);
+  border-right: 1px solid rgba(0, 212, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-content blockquote:hover {
+  transform: translateX(3px);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+  border-left-color: #8B5CF6; /* neon-purple */
+}
+
+.blog-content blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  font-size: 2rem;
+  color: #00D4FF; /* neon-blue */
+  font-family: serif;
+  opacity: 0.4;
+}
+
+/* Code Block Styling - Professional CDW Burhan Theme */
+.blog-content .code-block {
+  background: #1A1A1A; /* --color-card */
+  border-radius: 0.5rem; /* --radius */
+  margin: 2rem 0;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* --shadow-card */
+  border: 1px solid rgba(0, 212, 255, 0.3); /* neon-border */
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-content .code-block:hover {
+  transform: translateY(-4px); /* hover-lift */
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2); /* neon-glow */
+  border-color: #3B82F6; /* --color-accent */
+}
+
+.blog-content .code-header {
+  background: #2A2A2A; /* --color-muted */
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2A2A2A; /* --color-border */
+}
+
+.blog-content .code-language {
+  color: #FFD700; /* electric-gold */
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blog-content .copy-code-btn {
+  background: rgba(59, 130, 246, 0.1);
+  color: #FFFFFF; /* --color-foreground */
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+}
+
+.blog-content .copy-code-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: #3B82F6;
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.blog-content .code-block pre {
+  margin: 0;
+  padding: 1.5rem;
+  color: #FFFFFF; /* --color-foreground */
+  font-family: 'Fira Code', 'Courier New', monospace; /* --font-mono */
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+  background: transparent;
+}
+
+.blog-content .code-block code {
+  color: #FFFFFF; /* --color-foreground */
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+/* Inline code styling */
+.blog-content code:not(.code-block code) {
+  background: rgba(59, 130, 246, 0.15); /* accent with transparency */
+  color: #00D4FF; /* neon-blue */
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+  font-family: 'Fira Code', 'Courier New', monospace; /* --font-mono */
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-content code:not(.code-block code):hover {
+  background: rgba(59, 130, 246, 0.25);
+  color: #8B5CF6; /* neon-purple */
+  transform: translateY(-1px);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+/* Table styling */
+.blog-content table {
+  width: 100%;
+  margin: 2rem 0;
+  border-collapse: collapse;
+  background: #1A1A1A; /* --color-card */
+  border-radius: 0.5rem; /* --radius */
+  overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.3); /* neon-border */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* --shadow-card */
+}
+
+.blog-content table th {
+  background: #2A2A2A; /* --color-muted */
+  color: #FFFFFF; /* --color-foreground */
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.blog-content table td {
+  padding: 1rem;
+  border-top: 1px solid #2A2A2A; /* --color-border */
+  color: #B3B3B3; /* --color-muted-foreground */
+}
+
+.blog-content table tr:hover {
+  background: rgba(0, 212, 255, 0.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .blog-content h1 {
+    font-size: 2rem;
+  }
+  
+  .blog-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .blog-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .blog-content p {
+    font-size: 1rem;
+  }
+  
+  .blog-content .code-block pre {
+    padding: 1rem;
+    font-size: 13px;
+  }
+  
+  .blog-content .code-header {
+    padding: 0.5rem 1rem;
+  }
+}
